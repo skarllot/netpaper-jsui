@@ -1,4 +1,4 @@
-netpaper
-========
+netpaper javascript-based UI
+============================
 
-Network infrastructure documentation
+Javascript-based Web UI for netpaper (See https://github.com/skarllot/netpaper).
