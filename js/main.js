@@ -1,9 +1,10 @@
 var app = angular.module('netpaper', [ 'ngRoute', 'ngResource', 'ui.bootstrap' ]);
 
-app.config([ '$routeProvider', '$controllerProvider', function($routeProvider, $controllerProvider) {
+app.config([ '$routeProvider', '$controllerProvider', '$httpProvider', function($routeProvider, $controllerProvider, $httpProvider) {
     // Lazy loading
     app.registerCtrl = $controllerProvider.register;
     // ------------
+    $httpProvider.defaults.useXDomain = true;
 
     $routeProvider
     .when('/', {
@@ -19,7 +20,7 @@ app.config([ '$routeProvider', '$controllerProvider', function($routeProvider, $
     });
 }]);
 
-app.run(['$location', '$rootScope', 'installService', function($location, $rootScope, installService) {
+app.run(['$location', '$rootScope', 'installService', 'languageService', function($location, $rootScope, installService, languageService) {
     $rootScope.$on('$routeChangeSuccess', function(event, current, previous) {
         $rootScope.title = current.$$route.title;
     });

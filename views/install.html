@@ -1,17 +1,45 @@
-<style>
-    body { padding-top: 0px; }
-</style>
+<script src="models/user.js"></script>
+<script src="js/controller-install.js"></script>
 
-<div class="container">
-    <h1>Create First User</h1>
-    <form>
-        <div class="form-group">
-            <label for="username">User</label>
-            <input type="text" class="form-control" id="username" placeholder="Username">
+<div class="container" ng-controller="installController">
+    <div class="mainbox col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title text-center">Create First User</div>
+            </div>
+            <div class="panel-body">
+            <form ng-submit="createUser()">
+                <div class="form-group">
+                    <label class="sr-only" for="username">Username</label>
+                    <div class="input-group">
+                        <div class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></div>
+                        <input type="text" class="form-control" id="username" placeholder="Username" ng-model="user.user" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="password">Password</label>
+                    <div class="input-group">
+                        <div class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></div>
+                        <input type="password" class="form-control" id="password" placeholder="Password" ng-model="user.password" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="email">E-mail</label>
+                    <div class="input-group">
+                        <div class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></div>
+                        <input type="email" class="form-control" id="email" placeholder="E-mail" ng-model="user.email" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="lang">Language</label>
+                    <div class="input-group">
+                        <div class="input-group-addon"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span></div>
+                        <select ng-options="item as item.name for item in languages track by item.id" ng-model="user.language" class="form-control" id="lang"></select>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-primary pull-right" value="Create" />
+            </form>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Password">
-        </div>
-    </form>
+    </div>
 </div>

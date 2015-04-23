@@ -1,9 +1,0 @@
-{
-    "user": undefined,
-    "password": undefined,
-    "email": undefined,
-    "name": undefined,
-    "isAdmin": false,
-    "isLdap": false,
-    "language": undefined
-}
